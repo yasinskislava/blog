@@ -123,6 +123,7 @@ export default function login() {
               if (obj === "") {
                 error({ text: "Username or password is incorrect!" });
               } else {
+                localStorage.setItem("info", JSON.stringify(obj));
                 const profile = document.querySelector(".info");
                 const loggedOut = document.getElementById("loggedOut");
                 loggedOut.style.display = "none";
@@ -144,6 +145,7 @@ export default function login() {
                 user.textContent = `${obj.name} ${obj.surname}`;
                 const logOut = document.getElementById("logout");
                 logOut.addEventListener("click", () => {
+                  localStorage.removeItem("info");
                   loggedOut.style.display = "block";
                   const profileInfo = document.getElementById("showInfo");
                   profile.removeChild(profileInfo);
