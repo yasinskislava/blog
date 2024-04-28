@@ -6,6 +6,7 @@ import {
 import * as PNotifyMobile from "../../node_modules/@pnotify/mobile/dist/PNotifyMobile.js";
 import Handlebars from "handlebars";
 import * as basicLightbox from "basiclightbox";
+import renderComments from "./renderComments.js";
 
 defaultModules.set(PNotifyMobile, {});
 const template = `<li>
@@ -139,9 +140,100 @@ export default function addPost() {
             }, 300);
           });
         
-        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      const commentButton = document.querySelector("#comment");
+      
+        commentButton.addEventListener("click", (e) => {
+          if (
+            document.querySelector(".main-postfield b").textContent === "User"
+          ) {
+            error({ text: "You need to be signed in to leave a comment!" });
+            return;
+          }
+          const fullName =
+            document.querySelector(".main-postfield b").textContent;
+          const commentModal = basicLightbox.create(`
+    <div class="editPost">
+        <div class="data">
+              <img src="http://localhost:1234/icon.d5de67d9.png" />
+              <b>${fullName}</b>
+            </div>
+            <textarea rows="5" placeholder="Type something..."></textarea>
+            <button id="leaveComment">Send</button>
+    </div>
+`);
+          commentModal.show();
+          setTimeout(() => {
+            const trigger = document.getElementById("leaveComment");
+            trigger.addEventListener("click", async () => {
+              const comment = document.querySelector(".editPost textarea");
+              if (comment.value.trim() === "") {
+                alert({ text: "Form must not contain empty fields!" });
+                return;
+              }
+              const now = Date.now();
+              const info = {
+                name: document
+                  .querySelector(".main-postfield b")
+                  .textContent.split(" ")[0],
+                surname: document
+                  .querySelector(".main-postfield b")
+                  .textContent.split(" ")[1],
+                comment: comment.value,
+                creatingDate: `${new Date(now).getDate()}/${
+                  new Date(now).getMonth() + 1
+                }/${new Date(now).getFullYear()}  ${normalizeTime(
+                  new Date(now).getHours(),
+                  new Date(now).getMinutes()
+                )}`,
+              };
+
+              await fetch(
+                `http://localhost:3000/posts/${
+                  e.target.closest(".main-posts > li").id
+                }`
+              )
+                .then((value) => value.json())
+                .then((value) => {
+                  const tempArr = value.comments;
+                  tempArr.push(info);
+                  const options = {
+                    method: "PATCH",
+                    headers: {
+                      "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ comments: tempArr }),
+                  };
+                  fetch(
+                    `http://localhost:3000/posts/${
+                      e.target.closest(".main-posts > li").id
+                    }`,
+                    options
+                  );
+                });
+              commentModal.close();
+              setTimeout(() => {
+                renderComments(0, 1);
+                setTimeout(() => {
+                  const stylesFix = document.querySelectorAll(".comments");
+                  for (let k of stylesFix) {
+                    if (k.innerHTML.trim() === "") {
+                      k.classList.remove("showComment");
+                      k.classList.add("hideComment");
+                    } else {
+                      k.classList.remove("hideComment");
+                      k.classList.add("showComment");
+                    }
+                  }
+                }, 600);
+              }, 500);
+            });
+          }, 300);
+        });
+      }
+      //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
       document.querySelector(".main-postfield textarea").value = "";
-    }
+    
   });
 }
 
