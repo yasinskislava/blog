@@ -1,0 +1,505 @@
+.main {
+  position: absolute;
+  top: 150px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 99px 99px 0px 0px;
+  width: 1200px;
+  z-index: 2;
+  background-color: white;
+  padding-bottom: 50px;
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  font-family: "Poppins";
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.background {
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://wallpapercave.com/wp/3a0T946.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.main-list {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: large;
+  gap: 18px;
+}
+
+.main-list li {
+  padding: 3px 10px;
+  cursor: pointer;
+}
+.active {
+  background-color: #2ea44f;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, 0.1) 0 1px 0;
+  box-sizing: border-box;
+  color: #fff;
+}
+
+.main-posts {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 800px;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.main-posts > li {
+  position: relative;
+  width: 770px;
+  box-sizing: border-box;
+  background-color: #fff;
+  border: 1px solid lightgray;
+  border-radius: 25px;
+  padding: 30px;
+  transition: 0.7s;
+}
+
+.hidden {
+  opacity: 0;
+  margin-left: 2000px;
+}
+
+.data {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 25px;
+}
+
+.data img {
+  width: 50px;
+  height: 50px;
+}
+
+.main-postfield {
+  width: 500px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border: 1px solid lightgray;
+  padding: 15px;
+  gap: 10px;
+  border-radius: 25px;
+}
+
+textarea {
+  width: 100%;
+  font-size: 25px;
+  border-radius: 8px;
+}
+
+textarea:focus {
+  outline: none;
+}
+
+.main-postfield button {
+  display: block;
+  width: 100%;
+  font-weight: 800;
+  font-size: 17px;
+  outline: none;
+  cursor: pointer;
+  border: none;
+  padding: 0.9rem 2rem;
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  position: relative;
+  border-radius: 500px;
+  overflow: hidden;
+  background: #66ff66;
+  color: ghostwhite;
+}
+
+.main-postfield button span {
+  position: relative;
+  z-index: 10;
+  transition: color 0.4s;
+}
+
+.main-postfield button:hover span {
+  color: black;
+}
+
+.main-postfield button::before,
+.main-postfield button::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.main-postfield button::before {
+  content: "";
+  background: #000;
+  width: 120%;
+  left: -10%;
+  transform: skew(30deg);
+  transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
+}
+
+.main-postfield button:hover::before {
+  transform: translate3d(100%, 0, 0);
+}
+
+.main-utils {
+  width: 400px;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.wraper {
+  display: flex;
+  flex-direction: row;
+}
+
+.main-searchbar {
+  width: 95%;
+  height: 40px;
+  padding: 5px;
+  box-sizing: border-box;
+  background-color: lightgray;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-searchbar svg {
+  width: 25px;
+  height: 25px;
+}
+
+.main-searchbar input {
+  font-size: 20px;
+  width: calc(95% - 30px);
+  height: 100%;
+  outline: none;
+  border: none;
+  background-color: lightgray;
+}
+
+.filler {
+  border: 1px solid lightgray;
+  padding: 10px;
+  box-sizing: border-box;
+  margin-top: 10px;
+  border-radius: 25px;
+}
+
+.filler ul li {
+  border: 1px solid lightgray;
+  border-radius: 25px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.filler ul {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.box1 {
+  padding: 15px;
+  box-sizing: border-box;
+  display: flex;
+  gap: 10px;
+}
+
+.main-user {
+  width: 685px;
+  height: auto;
+  border: 1px solid lightgray;
+  border-radius: 25px;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.info button {
+  margin-top: 10px;
+  font-weight: 600;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-family: "Poppins";
+  font-size: 20px;
+  background-color: #fff;
+  padding: 0;
+}
+
+.info button:hover {
+  color: #7a7a7a;
+}
+
+.modal {
+  background-color: #fff;
+  height: 450px;
+  width: 300px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 20px;
+  border-radius: 25px;
+}
+
+.modal h3 {
+  text-align: center;
+}
+
+.modal ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 10px 0px;
+}
+
+.modal ul li {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal ul li input {
+  font-size: 20px;
+  border-radius: 5px;
+  padding: 5px;
+  box-sizing: border-box;
+  border: 1px solid gray;
+}
+
+.modal > button {
+  width: 110px;
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 0.625em;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  position: fixed;
+  z-index: 1;
+  overflow: hidden;
+  padding: 10px 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 10px;
+}
+
+.modal > button:hover {
+  color: black;
+}
+
+.modal > button:after {
+  content: "";
+  background: white;
+  position: absolute;
+  z-index: -1;
+  left: -20%;
+  right: -20%;
+  top: 0;
+  bottom: 0;
+  transform: skewX(-45deg) scale(0, 1);
+  transition: all 0.5s;
+}
+
+.modal > button:hover:after {
+  transform: skewX(-45deg) scale(1, 1);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.info ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.hiddenInfo {
+  transition: 0.7s;
+  visibility: hidden;
+  opacity: 0;
+  position: relative;
+  left: 40px;
+  gap: 15px;
+  width: calc(100% - 40px);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: end;
+  bottom: -30px;
+  height: 30px;
+  padding: 10px;
+}
+
+.hiddenInfo svg {
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  transition: 0.3s;
+}
+
+.main-posts li:hover .hiddenInfo {
+  visibility: visible;
+  opacity: 1;
+}
+
+#comment:hover {
+  fill: rgb(83, 71, 255);
+}
+
+#edit:hover {
+  fill: #66ff66;
+}
+
+#delete:hover {
+  fill: crimson;
+}
+
+.editPost {
+    width: 530px;
+    box-sizing: border-box;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 25px;
+}
+
+.editPost > button {
+  width: 110px;
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 0.625em;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  position: fixed;
+  z-index: 1;
+  overflow: hidden;
+  padding: 10px 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 10px;
+}
+
+.editPost > button:hover {
+  color: black;
+}
+
+.editPost > button:after {
+  content: "";
+  background: white;
+  position: absolute;
+  z-index: -1;
+  left: -20%;
+  right: -20%;
+  top: 0;
+  bottom: 0;
+  transform: skewX(-45deg) scale(0, 1);
+  transition: all 0.5s;
+}
+
+.editPost > button:hover:after {
+  transform: skewX(-45deg) scale(1, 1);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.editPost textarea {
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+
+.infinity {
+    position: fixed;
+    bottom: 30px;
+}
+
+.comments {
+    visibility: hidden;
+    transition: 0.7s;
+    opacity: 0;
+    position: absolute;
+    z-index: 20;
+    right: -300px;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    width: 300px;
+    border-radius: 25px;
+    box-sizing: border-box;
+    gap: 10px;
+}
+
+.comments li {
+    width: 270px;
+    border-radius: 25px;
+    border: 1px solid lightgray;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.comment-data {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.comment-data img{
+    height: 40px;
+    width: 40px;
+}
+
+.main-posts > li:hover .comments {
+    visibility: visible;
+    opacity: 1;
+}
+
+.showComment {
+    box-shadow: 0px 0px 10px 10px rgba(0,0,0,0.1);
+    padding: 15px;
+}
+
+.hideComment {
+    box-shadow: none;
+    padding: 0;
+}

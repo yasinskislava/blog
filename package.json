@@ -1,0 +1,30 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "parcel ./src/*.html",
+    "predeploy": "rm -rf dist && parcel build ./src/*.html --no-minify --public-url ./",
+    "deploy": "gh-pages -d dist",
+    "server": "npx json-server ./src/data.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yasinskislava/blog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yasinskislava/blog/issues"
+  },
+  "dependencies": {
+    "basiclightbox": "^5.0.4",
+    "handlebars": "^4.7.8",
+    "handlebars-loader": "^1.7.3",
+    "json-server": "^1.0.0-alpha.23",
+    "parcel": "^2.12.0",
+    "pnotify": "^5.2.0"
+  },
+  "type": "module"
+}

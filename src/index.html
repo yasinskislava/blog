@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="../node_modules/@pnotify/core/dist/BrightTheme.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="../node_modules/@pnotify/core/dist/PNotify.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="../node_modules/@pnotify/mobile/dist/PNotifyMobile.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="../node_modules/basiclightbox/dist/basicLightbox.min.css"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="background"></div>
+    <div class="main">
+      <ul class="main-list">
+        <li class="active"><a>For You</a></li>
+        <li><a>Popular</a></li>
+        <li><a>Reading List</a></li>
+        <li><a>Topics</a></li>
+        <li><a>Subscribe</a></li>
+      </ul>
+      <div class="wraper box1">
+        <div class="main-postfield">
+          <div class="data">
+            <img src="./images/icon.png" />
+            <b>User</b>
+          </div>
+          <textarea rows="5" placeholder="Type something..."></textarea>
+          <button><span>Post</span></button>
+        </div>
+        <div class="main-user">
+          <h2>Profile</h2>
+          <div class="info">
+            <h3 id="loggedOut">
+              <button id="signIn">Sign in</button> or
+              <button id="signUp">Sign Up</button>
+            </h3>
+          </div>
+        </div>
+      </div>
+
+      <div class="wraper">
+        <ul class="main-posts">
+          
+            
+        </ul>
+        <div class="infinity"></div>
+        <div class="main-utils">
+          <div class="main-searchbar">
+            <svg>
+              <use href="./images/symbol-defs.svg#search"></use>
+            </svg>
+            <input type="text" placeholder="Search..." />
+          </div>
+          <div class="filler">
+            <h2>What's popular</h2>
+            <ul>
+              <li>
+                <div class="data">
+                  <img src="./images/icon.png" />
+                  <b>Cucumber</b>
+                </div>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Suscipit ut facere hic perferendis similique atque.
+              </li>
+              <li>
+                <div class="data">
+                  <img src="./images/icon.png" />
+                  <b>Divan</b>
+                </div>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Suscipit ut facere hic perferendis similique atque.
+              </li>
+              <li>
+                <div class="data">
+                  <img src="./images/icon.png" />
+                  <b>Shampur</b>
+                </div>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Suscipit ut facere hic perferendis similique atque.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./index.js" type="module"></script>
+  </body>
+</html>
+
+
+
